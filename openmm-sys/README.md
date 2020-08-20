@@ -93,6 +93,9 @@ Popping the last two components from that path should yield a location which con
 export OPENMM_HOME=/usr/local/anaconda3/envs/openmm_env/
 ```
 
+### Versioning
+This crate's version is constructed by dividing OpenMM's version by 10 and removing the last digit. For example, `openmm-sys` version 0.7.4 corresponds to `OpenMM` 7.4.2 (the latest at the time of writing). If you are interested in having Rust wrappers for a different `OpenMM` version, by all means contact me at *a.l.nicusan \<at\> bham.ac.uk*.
+
 
 ### Basic Configuration
 By default, OpenMM's CMake installer will check which platforms are available and build all plugins for those. For example, if CUDA is available on your system and the AMOEBA plugin is going to be built (`OPENMM_BUILD_AMOEBA_PLUGIN = "ON"` in CMake), the CUDA implementation is also included by default (`OPENMM_BUILD_AMOEBA_CUDA_LIB = "ON"`). The most important features available can be cherry-picked from this crate, as shown below.
