@@ -129,7 +129,8 @@ In this case, OpenMM is built and used as a [static library](https://en.wikipedi
 
 - Wrappers:
   - `c-and-fortran-wrappers` - build C and Fortran wrappers. Essential if you want to use this crate, as it uses the C API.
-  - `python-wrappers` - build OpenMM's Python wrapper.
+
+Note: we cannot build the Python wrapper in this crate as packaging the required OpenMM source code exceeds crates.io's limit of 10 MB per crate. If you need the Python wrapper, please use another installation path (`conda`, compiling from source, etc.).
 
 ### Advanced Configuration
 The build step can be further configured using some environment variables:

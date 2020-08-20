@@ -7,13 +7,14 @@ edition = "2018"
 description = "Rust bindings for the OpenMM toolkit for molecular simulation using high performance GPU code."
 readme = "README.md"
 repository = "https://github.com/uob-positron-imaging-centre/openmm-rust"
-license = "MIT/LGPL-3.0"
+license = "MIT"
 
 keywords = ["simulation", "molecular-dynamics", "molecular-simulation"]
 categories = ["external-ffi-bindings", "science", "simulation"]
 
 links = "OpenMM"
 build = "build.rs"
+exclude = ["openmm/wrappers/python"]
 
 [lib]
 name = "openmm_sys"
@@ -42,7 +43,6 @@ examples = []
 generate-api-docs = []
 
 c-and-fortran-wrappers = []
-python-wrappers = []
 
 [profile.dev]
 opt-level = 3

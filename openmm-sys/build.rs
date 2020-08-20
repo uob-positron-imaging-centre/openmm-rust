@@ -29,7 +29,7 @@ struct BuildOptions {
     OPENMM_GENERATE_API_DOCS: Option<bool>,
 
     OPENMM_BUILD_C_AND_FORTRAN_WRAPPERS: Option<bool>,
-    OPENMM_BUILD_PYTHON_WRAPPERS: Option<bool>,
+    OPENMM_BUILD_PYTHON_WRAPPERS: Option<bool>,         // Always false due to crates.io size limit
 }
 
 impl BuildOptions {
@@ -202,9 +202,10 @@ fn configure_cmake(cmaker: &mut cmake::Config) {
     if env::var("CARGO_FEATURE_C_AND_FORTRAN_WRAPPERS").is_ok() {
         build_options.OPENMM_BUILD_C_AND_FORTRAN_WRAPPERS = Some(true);
     }
-    if env::var("CARGO_FEATURE_PYTHON_WRAPPERS").is_ok() {
-        build_options.OPENMM_BUILD_PYTHON_WRAPPERS = Some(true);
-    }
+
+    // Don't build python wrappers as they are 50 MB in size, way over crates.io's crate source
+    // size limit of 10 MB.
+    build_options.OPENMM_BUILD_PYTHON_WRAPPERS = Some(false);
 
     add_build_options(cmaker, build_options);
 }
