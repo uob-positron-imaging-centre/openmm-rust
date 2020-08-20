@@ -94,7 +94,9 @@ export OPENMM_HOME=/usr/local/anaconda3/envs/openmm_env/
 ```
 
 ### Versioning
-This crate's version is constructed by dividing OpenMM's version by 10 and removing the last digit. For example, `openmm-sys` version 0.7.4 corresponds to `OpenMM` 7.4.2 (the latest at the time of writing). If you are interested in having Rust wrappers for a different `OpenMM` version, by all means contact me at *a.l.nicusan \<at\> bham.ac.uk*.
+The first two digits of this crate's version correspond to the latest [minor version](https://semver.org/) of `OpenMM`, while the last digit corresponds to patches to this crate. For example, `openmm-sys` version 7.4.0 corresponds to `OpenMM` 7.4.2 (the latest at the time of writing).
+
+If you are interested in having Rust wrappers for a different `OpenMM` version, by all means contact me at *a.l.nicusan \<at\> bham.ac.uk*.
 
 
 ### Basic Configuration
