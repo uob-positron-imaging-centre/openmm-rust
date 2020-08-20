@@ -8,7 +8,6 @@ This crate needs the following programs installed and available on your system:
 
 - C / C++ compiler (the platform defaults work best: MSVC on Windows, GCC on Linux and Clang on macOS)
 - CMake
-- git
 
 ## Installation
 
@@ -16,7 +15,7 @@ The simplest installation can be achieved by simply adding the following to `Car
 
 ```toml
 [dependencies]
-openmm-sys = "0.7.4"
+openmm-sys = "7.4"
 ```
 
 That's it! The installation is fully self-contained. However, building the OpenMM libraries can be a bit time-consuming - on the author's machine (mid 2012 MacBook Pro) it takes 3-5 minutes. To see the CMake build steps as it runs, use the `-vv` (very verbose) when building using Cargo:
@@ -93,12 +92,6 @@ Popping the last two components from that path should yield a location which con
 export OPENMM_HOME=/usr/local/anaconda3/envs/openmm_env/
 ```
 
-### Versioning
-The first two digits of this crate's version correspond to the latest [minor version](https://semver.org/) of `OpenMM`, while the last digit corresponds to patches to this crate. For example, `openmm-sys` version 7.4.0 corresponds to `OpenMM` 7.4.2 (the latest at the time of writing).
-
-If you are interested in having Rust wrappers for a different `OpenMM` version, by all means contact me at *a.l.nicusan \<at\> bham.ac.uk*.
-
-
 ### Basic Configuration
 By default, OpenMM's CMake installer will check which platforms are available and build all plugins for those. For example, if CUDA is available on your system and the AMOEBA plugin is going to be built (`OPENMM_BUILD_AMOEBA_PLUGIN = "ON"` in CMake), the CUDA implementation is also included by default (`OPENMM_BUILD_AMOEBA_CUDA_LIB = "ON"`). The most important features available can be cherry-picked from this crate, as shown below.
 
@@ -146,9 +139,13 @@ The build step can be further configured using some environment variables:
 
 Finally, you can compile OpenMM yourself using CMake. Even more information (and perhaps better explained than me) is provided by OpenMM's authors on their [website](http://docs.openmm.org/latest/userguide/library.html#compiling-openmm-from-source-code) - see the "Compiling OpenMM from Source Code" section.
 
-
 ## Examples
 Take a look in the `examples/` folder for some low-level use of OpenMM from Rust. Note that it uses OpenMM's C Wrapper, so all functions calls must be `unsafe` - see the `openmm-rust` crate for a safe, higher-level API.
+
+## Versioning
+The first two digits of this crate's version correspond to the latest [minor version](https://semver.org/) of `OpenMM`, while the last digit corresponds to patches to this crate. For example, `openmm-sys` version 7.4.0 corresponds to `OpenMM` 7.4.2 (the latest at the time of writing).
+
+If you are interested in having Rust wrappers for a different `OpenMM` version, by all means contact me at *a.l.nicusan \<at\> bham.ac.uk*.
 
 ## Bindgen Usage
 The shell script used to generate the Rust bindings to OpenMM's C Wrapper is included in `src/bindings`, along with the wrapper itself.

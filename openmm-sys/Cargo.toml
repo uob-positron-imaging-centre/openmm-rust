@@ -1,6 +1,6 @@
 [package]
 name = "openmm-sys"
-version = "7.4.0"
+version = "7.4.1"
 
 authors = ["Andrei Leonard Nicusan <a.l.nicusan@bham.co.uk>"]
 edition = "2018"
