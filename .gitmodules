@@ -1,0 +1,4 @@
+[submodule "openmm-sys/openmm"]
+	path = openmm-sys/openmm
+	url = https://github.com/anicusan/openmm-mirrors.git
+	branch = 7.4.2

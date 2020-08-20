@@ -1,0 +1,69 @@
+[package]
+name = "openmm-sys"
+version = "0.7.4"
+
+authors = ["Andrei Leonard Nicusan <a.l.nicusan@bham.co.uk>"]
+edition = "2018"
+description = "Rust bindings for the OpenMM toolkit for molecular simulation using high performance GPU code."
+readme = "README.md"
+repository = "https://github.com/uob-positron-imaging-centre/openmm-rust"
+license = "MIT/LGPL-3.0"
+
+keywords = ["simulation", "molecular dynamics"]
+categories = ["external-ffi-bindings", "science", "simulation"]
+
+links = "OpenMM"
+build = "build.rs"
+
+[lib]
+name = "openmm_sys"
+path = "src/lib.rs"
+
+[dependencies]
+
+[build-dependencies]
+cmake = "0.1"
+
+[features]
+shared-lib = []
+static-lib = []
+
+no-default = []
+minimal = []
+
+cpu = []
+opencl = []
+cuda = []
+
+amoeba = []
+drude = []
+pme = []
+rpmd = []
+
+examples = []
+generate-api-docs = []
+
+c-and-fortran-wrappers = []
+python-wrappers = []
+
+[profile.dev]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = "thin"
+panic = "abort"
+incremental = true
+codegen-units = 16
+rpath = true
+
+[profile.release]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = "thin"
+panic = "abort"
+incremental = true
+codegen-units = 16
+rpath = true
