@@ -9,7 +9,7 @@ readme = "README.md"
 repository = "https://github.com/uob-positron-imaging-centre/openmm-rust"
 license = "MIT/LGPL-3.0"
 
-keywords = ["simulation", "molecular dynamics"]
+keywords = ["simulation", "molecular-dynamics", "molecular-simulation"]
 categories = ["external-ffi-bindings", "science", "simulation"]
 
 links = "OpenMM"
